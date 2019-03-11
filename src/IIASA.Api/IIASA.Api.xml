@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IIASA.Api</name>
+    </assembly>
+    <members>
+        <member name="M:IIASA.Api.Controllers.ImageController.UploadImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload image.
+            </summary>
+            <param name="file">File data.</param>
+            <returns>Id of created image.</returns>
+            <response code="200" cref="T:IIASA.Api.Global.Response.ValueResponseModel`1">Id of created image.</response>
+            <response code="400" cref="T:IIASA.Api.Global.Response.ValidationFailedResultModel">Bad input params.</response>
+            <response code="422" cref="T:IIASA.Api.Global.Response.ErrorResponseModel">Reason.</response>
+        </member>
+        <member name="M:IIASA.Api.Controllers.ImageController.GetImage(System.Int32,IIASA.Common.Enums.ImageSize)">
+            <summary>
+            Get image by custom size.
+            </summary>
+            <param name="imageId">Id of image.</param>
+            <param name="size">Size of image.</param>
+            <returns>Thumbnail image.</returns>
+            <response code="200" cref="T:System.IO.File">Image.</response>
+            <response code="400" cref="T:IIASA.Api.Global.Response.ValidationFailedResultModel">Bad input params.</response>
+            <response code="422" cref="T:IIASA.Api.Global.Response.ErrorResponseModel">Reason.</response>
+        </member>
+        <member name="M:IIASA.Api.Controllers.ImageController.GetImageMetaData(System.Int32)">
+            <summary>
+            Get image metadata.
+            </summary>
+            <param name="imageId">Id of image.</param>
+            <returns>Image metadata.</returns>
+            <response code="200" cref="T:IIASA.Services.Core.Interfaces.ImageExif">Metadata model.</response>
+            <response code="400" cref="T:IIASA.Api.Global.Response.ValidationFailedResultModel">Bad input params.</response>
+            <response code="422" cref="T:IIASA.Api.Global.Response.ErrorResponseModel">Reason.</response>
+        </member>
+        <member name="M:IIASA.Api.Controllers.ImageController.GetImageCustomSize(System.Int32,System.Int32)">
+            <summary>
+            Get image by custom size.
+            </summary>
+            <param name="imageId">Id of image.</param>
+            <param name="pixels">Pixels.</param>
+            <returns>Thumbnail image.</returns>
+            <response code="200" cref="T:System.IO.File">Image.</response>
+            <response code="400" cref="T:IIASA.Api.Global.Response.ValidationFailedResultModel">Bad input params.</response>
+            <response code="422" cref="T:IIASA.Api.Global.Response.ErrorResponseModel">Reason.</response>
+        </member>
+    </members>
+</doc>

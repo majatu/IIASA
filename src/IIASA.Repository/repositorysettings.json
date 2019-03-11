@@ -1,0 +1,18 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+
+  "Settings": {
+    "ConnectionStrings": {
+
+      "Default": "Host=postgres_image;Database=IIASA;Username=postgres;Password=qwerty"
+    }
+
+  }
+
+  
+}

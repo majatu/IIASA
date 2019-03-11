@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  dockerapi-dev:
+    driver: bridge 
+
+services:
+  dockerapi:
+    image: dockerapi:latest
+    depends_on:
+      - "postgres_image"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"     
+    networks:
+      - dockerapi-dev  
+    volumes:
+      - logs_volume:/app/logs
+      - img_volume:/app/img
+
+  postgres_image:
+    image: postgres:latest
+    ports:
+      - "5556:5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "qwerty"
+      POSTGRES_DB: "IIASA"
+    networks:
+      - dockerapi-dev
+
+volumes:
+  db_volume:
+  logs_volume:
+  img_volume:
